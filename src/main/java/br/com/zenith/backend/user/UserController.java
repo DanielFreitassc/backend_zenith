@@ -25,7 +25,7 @@ public class UserController {
     private IUserRepository userRepository;
 
     @CrossOrigin(origins = "*", allowedHeaders ="*")
-    @PostMapping("/")
+    @PostMapping("/register")
     public ResponseEntity create(@RequestBody UserModel userModel){
 
         var cpf = this.userRepository.findByCpf(userModel.getCpf());
@@ -43,9 +43,9 @@ public class UserController {
         var userCreated = this.userRepository.save(userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
     }
-    // Login teste
+    // Login 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping("/login")
+    @PostMapping("/")
     public ResponseEntity<Map<String, String>> login(@RequestBody UserModel userModel) {
     var user = this.userRepository.findByCpf(userModel.getCpf());
 
