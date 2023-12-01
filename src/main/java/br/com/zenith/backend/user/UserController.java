@@ -43,7 +43,7 @@ public class UserController {
         var userCreated = this.userRepository.save(userModel);
         return ResponseEntity.status(HttpStatus.CREATED).body(userCreated);
     }
-    // Login 
+    
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping("/")
     public ResponseEntity<Map<String, String>> login(@RequestBody UserModel userModel) {
